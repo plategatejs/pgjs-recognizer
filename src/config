@@ -1,0 +1,6 @@
+localhost
+5672
+user
+pass
+inputQueue
+outputQueue
