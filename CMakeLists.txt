@@ -20,8 +20,9 @@ set ( OPENCV_LIBRARIES
     opencv_core
     opencv_imgproc
     opencv_highgui
-	openalpr
+    openalpr
+    SimpleAmqpClient
 )
 
-add_executable(FallDetectionTestingTemplate ${SOURCE_FILES})
-target_link_libraries( FallDetectionTestingTemplate ${OPENCV_LIBRARIES})
+add_executable( recognizer_pgjs ${SOURCE_FILES})
+target_link_libraries( recognizer_pgjs ${OPENCV_LIBRARIES})
