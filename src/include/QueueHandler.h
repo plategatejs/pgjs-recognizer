@@ -9,7 +9,6 @@
 #define QUEUEHANDLER_H_
 
 #include <SimpleAmqpClient/SimpleAmqpClient.h>
-#include "MessageHandler.h"
 
 using namespace std;
 using namespace AmqpClient;
@@ -19,7 +18,6 @@ public:
 	QueueHandler(const string &host, const int port, const string &username, const string &password,
 			const string &inputExchangeName, const string &outputExchangeName) :
 			inputExchangeName_(inputExchangeName), outputExchangeName_(outputExchangeName), connection(Channel::Create(host, port, username, password)) {
-		//connection->DeclareExchange(inputExchangeName);
 		connection->DeclareExchange(outputExchangeName);
 		connection->BasicConsume(inputExchangeName);
 	}
