@@ -30,13 +30,13 @@ int main() {
 			properties.inputQueueName, properties.outputQueueName);
 	ALPRHandler alprHandler;
 
-	//while (1) {
-	string binaryImage = queueHandler.waitForMessageString();
-	vector<char> charImage(binaryImage.c_str(), binaryImage.c_str() + binaryImage.length());
-	cv::Mat image = cv::imdecode(cv::Mat(charImage), 1);
-	string result = alprHandler.getPlatesFromImage(image);
-	queueHandler.sendString(result);
-	//}
+	while (1) {
+		string binaryImage = queueHandler.waitForMessageString();
+		vector<char> charImage(binaryImage.c_str(), binaryImage.c_str() + binaryImage.length());
+		cv::Mat image = cv::imdecode(cv::Mat(charImage), 1);
+		string result = alprHandler.getPlatesFromImage(image);
+		queueHandler.sendString(result);
+	}
 
 	return 0;
 }
