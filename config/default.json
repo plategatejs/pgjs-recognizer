@@ -1,0 +1,15 @@
+{
+  "redis": {
+    "url": "redis://pgjs-redis:6379",
+    "channels": {
+      "images": "images",
+      "plates": "plates"
+    }
+  },
+  "logger": {
+    "console": {
+      "level": "info",
+      "colorize": true
+    }
+  }
+}

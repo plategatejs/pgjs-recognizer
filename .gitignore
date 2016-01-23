@@ -1,10 +1,3 @@
-.project
-.cproject
-.settings/
-Debug/src/
-config
-CMakeCache.txt
-CMakeFiles/
-Makefile
-cmake_install.cmake
-recognizer_pgjs
+.idea
+node_modules
+npm-debug.log
