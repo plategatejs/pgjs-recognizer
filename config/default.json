@@ -1,4 +1,8 @@
 {
+  "recognition": {
+    "tempPath": "/dev/shm/pgjs-recognizer-image",
+    "plateLimit": 10
+  },
   "redis": {
     "url": "redis://pgjs-redis:6379",
     "channels": {

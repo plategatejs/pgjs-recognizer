@@ -5,10 +5,13 @@ import config from 'config';
 import logger from './logger';
 
 const url = config.get('redis.url');
-const client = redis.createClient(url);
+const clients = ['publish', 'subscribe'];
 
-client.on('ready', () => logger.info('connected to redis'));
-client.on('end', () => logger.warn('disconnected from redis'));
-client.on('error', ({message}) => logger.error(`redis ${message}`));
+const [ publishClient, subscribeClient ] = clients.map(name => {
+  return redis.createClient(url)
+    .on('ready', () => logger.info(`connected to ${name} redis`))
+    .on('end', () => logger.warn(`disconnected from ${name} redis`))
+    .on('error', ({message}) => logger.error(`${name} redis ${message}`));
+});
 
-export default client;
+export { publishClient, subscribeClient };
