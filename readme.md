@@ -1,6 +1,6 @@
 # pgjs-recognizer
 
-PlateGateJS plate recognition component.
+[PlateGateJS](https://github.com/plategatejs/pgjs-docs) plate recognition component.
 
 ## Summary
 

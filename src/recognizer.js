@@ -4,6 +4,7 @@ import fs from 'fs';
 import EventEmitter from 'events';
 import config from 'config';
 import OpenAlpr from 'node-openalpr';
+import logger from './logger';
 
 const Recognizer = function () {
   EventEmitter.call(this);
@@ -41,11 +42,19 @@ const Recognizer = function () {
   this.enqueue = (image) => {
     storeImage(image)
       .then(identifyPlates)
-      .then(plates => this.emit('plates', plates))
+      .then((plates) => {
+        if (plates.length) {
+          logger.info(`recognized plates: ${plates.join(', ')}.`);
+          this.emit('plates', plates);
+        }
+      })
       .catch(error => logger.error(error));
   };
 
-  this.start = () => OpenAlpr.Start();
+  this.start = () => {
+    const options = config.get('recognition.openalpr');
+    OpenAlpr.Start(options);
+  };
 };
 
 Recognizer.prototype = Object.create(EventEmitter.prototype);

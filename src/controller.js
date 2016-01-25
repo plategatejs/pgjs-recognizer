@@ -3,6 +3,7 @@
 import EventEmitter from 'events';
 import config from 'config';
 import { publishClient, subscribeClient } from './redis';
+import logger from './logger';
 
 const Controller = function () {
   EventEmitter.call(this);
@@ -11,6 +12,7 @@ const Controller = function () {
 
   subscribeClient.on('message', (channel, message) => {
     if (channel === channels.images) {
+      logger.info('image received');
       const image = new Buffer(message, 'base64');
       this.emit('image', image);
     }
