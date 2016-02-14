@@ -51,10 +51,7 @@ const Recognizer = function () {
       .catch(error => logger.error(error));
   };
 
-  this.start = () => {
-    const options = config.get('recognition.openalpr');
-    OpenAlpr.Start(options);
-  };
+  this.start = () => OpenAlpr.Start();
 };
 
 Recognizer.prototype = Object.create(EventEmitter.prototype);

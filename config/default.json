@@ -1,10 +1,7 @@
 {
   "recognition": {
     "tempPath": "/dev/shm/pgjs-recognizer-image",
-    "plateLimit": 10,
-    "openalpr": {
-      "country": "eu"
-    }
+    "plateLimit": 10
   },
   "redis": {
     "url": "redis://pgjs-redis:6379",

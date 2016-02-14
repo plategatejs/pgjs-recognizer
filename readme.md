@@ -12,9 +12,9 @@ This module:
 
 Api:
 
-* Incoming images must be _base64_ encoded, binary string.
-* Outgoing plates are _JSON_ array of strings.
-* Channel names, by default, are _images_ and _plates_.
+* Incoming images must be _base64_ encoded, binary string
+* Outgoing plates are _JSON_ array of strings
+* Channel names, by default, are _images_ and _plates_
 
 ## Basic setup
 
